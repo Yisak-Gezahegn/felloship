@@ -5,10 +5,10 @@ include 'includes/header.php';
 
 <main>
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(rgba(44, 90, 160, 0.8), rgba(30, 58, 111, 0.8)), linear-gradient(135deg, var(--spiritual-gold), var(--spiritual-blue)) center/cover; color: white; padding: 100px 0; text-align: center;">
+    <section class="hero" style="background:linear-gradient(rgba(44, 90, 160, 0.8), rgba(30, 58, 111, 0.8)), linear-gradient(135deg, var(--spiritual-gold), var(--spiritual-blue)) center/cover; color: white; padding: 100px 0; text-align: center; ">
         <div class="container">
-            <h1 style="font-size: 3rem; margin-bottom: 20px;">Welcome to Kale Hiywot Family Fellowship</h1>
-            <p style="font-size: 1.3rem; margin-bottom: 30px;">Building a Christ-centered community at Haramaya University</p>
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">Welcome to Haramaya University Kale Heywet Family Fellowship</h1>
+            <p style="font-size: 1.3rem; margin-bottom: 30px;">Growing in Wisdom,Grace, and Unity throuth faith in Christ.</p>
             <div style="display: flex; gap: 20px; justify-content: center;">
                 <a href="register.php" class="btn btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">Join Us</a>
                 <a href="login.php" class="btn" style="background: white; color: var(--primary-color); font-size: 1.2rem; padding: 15px 40px;">Login</a>
@@ -47,16 +47,16 @@ include 'includes/header.php';
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
                 <?php
                 $sections = [
-                    ['name' => 'Evangelism', 'icon' => 'fa-bullhorn', 'desc' => 'Spreading the Gospel', 'logo' => 'Evan-logo.jpg'],
-                    ['name' => 'Bible Study', 'icon' => 'fa-book-open', 'desc' => 'Studying God\'s Word', 'logo' => 'Bs-logo.jpg'],
-                    ['name' => 'Choirs', 'icon' => 'fa-music', 'desc' => 'Worship through Music', 'logo' => ''],
-                    ['name' => 'Worship', 'icon' => 'fa-hands', 'desc' => 'Leading Praise', 'logo' => ''],
-                    ['name' => 'Prayers', 'icon' => 'fa-praying-hands', 'desc' => 'Intercession Ministry', 'logo' => ''],
-                    ['name' => 'Fundraising', 'icon' => 'fa-hand-holding-usd', 'desc' => 'Financial Support', 'logo' => ''],
-                    ['name' => 'Charity', 'icon' => 'fa-heart', 'desc' => 'Helping the Needy', 'logo' => ''],
-                    ['name' => 'LAD', 'icon' => 'fa-art', 'desc' => 'Leadership Training', 'logo' => ''],
-                    ['name' => 'Media', 'icon' => 'fa-camera', 'desc' => 'Documentation', 'logo' => ''],
-                    ['name' => 'Counseling', 'icon' => 'fa-comments', 'desc' => 'Spiritual Guidance', 'logo' => '']
+                    ['name' => 'Evangelism section', 'icon' => 'fa-bullhorn', 'desc' => 'Spreading the Gospel', 'logo' => 'Evan-logo.jpg'],
+                    ['name' => 'Bible Study section', 'icon' => 'fa-book-open', 'desc' => 'Studying God\'s Word', 'logo' => 'Bs-logo.jpg'],
+                    ['name' => 'Choirs section', 'icon' => 'fa-music', 'desc' => 'Worship through Music', 'logo' => ''],
+                    ['name' => 'Worship section', 'icon' => 'fa-hands', 'desc' => 'Leading Praise', 'logo' => ''],
+                    ['name' => 'Prayers section', 'icon' => 'fa-praying-hands', 'desc' => 'Intercession Ministry', 'logo' => ''],
+                    ['name' => 'Fundraising section', 'icon' => 'fa-hand-holding-usd', 'desc' => 'Financial Support', 'logo' => ''],
+                    ['name' => 'Charity section', 'icon' => 'fa-heart', 'desc' => 'Helping the Needy', 'logo' => ''],
+                    ['name' => 'LAD section', 'icon' => 'fa-art', 'desc' => 'Leadership Training', 'logo' => ''],
+                    ['name' => 'Media section', 'icon' => 'fa-camera', 'desc' => 'Documentation', 'logo' => ''],
+                    ['name' => 'Counseling section', 'icon' => 'fa-comments', 'desc' => 'Spiritual Guidance', 'logo' => '']
                 ];
                 
                 foreach ($sections as $section) {

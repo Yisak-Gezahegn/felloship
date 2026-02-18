@@ -32,7 +32,7 @@ $rel_path = str_repeat('../', max(0, $depth));
                         <img src="<?php echo $rel_path; ?>assets/images/fellowship-logo.jpg" alt="Fellowship Logo" class="logo">
                     </div>
                     <div class="header-text">
-                        <h1>Kale Hiywot Fellowship</h1>
+                        <h1>Kale Heywet Family Fellowship</h1>
                         <p class="fellowship-subtitle">Haramaya University</p>
                     </div>
                 </div>
