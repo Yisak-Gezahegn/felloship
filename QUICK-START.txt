@@ -1,0 +1,205 @@
+━━━━━━━━━━━
+
+📞 NEED HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Read INSTALLATION-GUIDE.md for detailed setup
+2. Read DEMO-ACCOUNTS.md for all login credentials
+3. Check browser console (F12) for errors
+4. Verify XAMPP services are running
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 ENJOY YOUR FELLOWSHIP MANAGEMENT SYSTEM!
+
+╚══════════════════════════════════════════════════════════════════════════════╝
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  IMPORTANT NOTES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Import database.sql FIRST, then demo-accounts.sql
+✓ Create uploads/ folders before uploading images
+✓ All demo passwords are "demo123" except developer ("admin123")
+✓ Clear browser cache (Ctrl+F5) if images don't show
+✓ Make sure Apache and MySQL are running in XAMPP
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━k feedback
+   → Database info
+
+2. Login as COORDINATOR (coordinator / demo123)
+   → Approve pending leaders
+   → View section reports
+   → Search members
+   → Access fellowship leaders group
+
+3. Login as SECTION LEADER (section_leader / demo123)
+   → Submit section report
+   → Add financial transaction
+   → View section members
+   → Create section post
+
+4. Login as MEMBER (member / demo123)
+   → View home feed
+   → React to posts (like, pray)
+   → Comment on posts
+   → See online users
+   → View events
+
+━━━━━ DEVELOPER (developer / admin123)
+   → See system statistics
+   → View all users
+   → Chece
+5. 🙏 Prayers (PRAYER)           - Intercession Ministry
+6. 💰 Fundraising (FUND)         - Financial Support
+7. ❤️  Charity (CHARITY)          - Helping the Needy
+8. 🎓 LAD (LAD)                  - Leadership Training
+9. 📷 Media (MEDIA)              - Documentation
+10. 💬 Counseling (COUNSEL)      - Spiritual Guidance
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 TESTING WORKFLOW:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Login as Word
+3. 🎵 Choirs (CHOIR)             - Worship through Music
+4. 🙌 Worship (WORSHIP)          - Leading Praisunts)
+├── 📄 README.md                    (Project overview)
+├── 📄 INSTALLATION-GUIDE.md        (Detailed setup guide)
+├── 📄 DEMO-ACCOUNTS.md             (Login credentials)
+└── 📄 QUICK-START.txt              (This file)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 10 FELLOWSHIP SECTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 📢 Evangelism (EVAN)          - Spreading the Gospel
+2. 📖 Bible Study (BS)           - Studying God'ss)
+│   ├── posts/                      (Post images)
+│   └── files/                      (File attachments)
+│
+├── 📄 database.sql                 (Database structure)
+├── 📄 demo-accounts.sql            (Demo user acconavigation)
+│   ├── footer.php                  (Footer)
+│   └── functions.php               (Helper functions)
+│
+├── 📁 assets/
+│   ├── css/style.css               (Styles)
+│   ├── js/main.js                  (JavaScript)
+│   └── images/                     (Logos)
+│       ├── fellowship-logo.jpg     ✓ Added
+│       ├── Evan-logo.jpg           ✓ Added
+│       └── Bs-logo.jpg             ✓ Added
+│
+├── 📁 uploads/                     (User uploads - CREATE THIS!)
+│   ├── profiles/                   (Profile pictureeaders/          (Fellowship leaders dashboard)
+├── 📁 section-leaders/             (Section leaders dashboard)
+├── 📁 family-leaders/              (Family leaders dashboard)
+├── 📁 members/                     (Members dashboard)
+│
+├── 📁 api/                         (API endpoints)
+│   ├── create-post.php
+│   ├── react.php
+│   ├── comment.php
+│   └── online-users.php
+│
+├── 📁 config/
+│   └── database.php                (Database connection)
+│
+├── 📁 includes/
+│   ├── header.php                  (Header with d)
+├── 📁 fellowship-lfellowship/
+├── 📄 index.php                    (Public home page)
+├── 📄 login.php                    (Login page)
+├── 📄 register.php                 (Registration page)
+├── 📄 home.php                     (User feed - like Facebook)
+├── 📄 sections.php                 (View all sections)
+├── 📄 logout.php                   (Logout)
+├── 📄 pending.php                  (Pending approval page)
+│
+├── 📁 admin/                       (Developer dashboard)
+├── 📁 coordinator/                 (Coordinator dashboar━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 PROJECT STRUCTURE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+haramaya-)
+
+📊 SECTION LEADER (e.g., Evangelism)
+   ✓ Manage section members
+   ✓ Submit section reports
+   ✓ Submit financial reports
+   ✓ Create section posts/events
+   ✓ View section statistics
+
+👨‍👩‍👧 FAMILY LEADER (Moms & Dads)
+   ✓ Create family groups
+   ✓ Manage family members
+   ✓ Create posts & events
+   ✓ Family messaging
+
+👤 MEMBER (Regular User)
+   ✓ View posts & events
+   ✓ React (like, pray, amen)
+   ✓ Comment on posts
+   ✓ Join groups
+   ✓ Private messaging
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━al reports
+   ✓ Create/join groups
+   ✓ System administration
+   ✓ Manage users (limited━━━━━━━━━━
+
+🎯 WHAT EACH ROLE CAN DO:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 DEVELOPER (Full System Control)
+   ✓ Manage all users
+   ✓ View all reports & feedback
+   ✓ Database backup
+   ✓ System settings
+   ✓ Access everything
+
+👔 COORDINATOR (Church Admin)
+   ✓ Approve fellowship & section leaders
+   ✓ View all section reports
+   ✓ Manage all members
+   ✓ Create posts & events
+   ✓ Fellowship leaders group
+
+👥 FELLOWSHIP LEADER
+   ✓ Create posts & events
+   ✓ Financi━━━━━────────────────┴──────────────┴─────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━rs/... │
+│ 👨‍👩‍👧 Family Leader   │ family_leader    │ demo123      │ family-leaders/...  │
+│ 👤 Member           │ member           │ demo123      │ home.php            │
+└─────────────────────┴──tion_leader   │ demo123      │ section-leade-leaders/ │
+│ 📊 Section Leader   │ sec───┤
+│ 🔧 Developer        │ developer        │ admin123     │ admin/dashboard.php │
+│ 👔 Coordinator      │ coordinator      │ demo123      │ coordinator/...     │
+│ 👥 Fellow Leader    │ fellow_leader    │ demo123      │ fellowship━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────┬──────────────────┬──────────────┬─────────────────────┐
+│ ROLE                │ USERNAME         │ PASSWORD     │ DASHBOARD           │
+├─────────────────────┼──────────────────┼──────────────┼──────────────────━━━loper):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔐 DEMO ACCOUNTS (Password: demo123, except deveate folders: uploads/profiles/, uploads/posts/, uploads/files/
+7. Visit: http://localhost/haramaya-fellowship/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━abase: haramaya_fellowship
+4. Import: database.sql
+5. Import: demo-accounts.sql
+6. Cre━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Start XAMPP (Apache + MySQL)
+2. Open phpMyAdmin: http://localhost/phpmyadmin
+3. Create datS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━════════════════════════════════════╗
+║                    HARAMAYA FELLOWSHIP - QUICK START GUIDE                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📋 INSTALLATION STEP════════════════════════════════════════╔══

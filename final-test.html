@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final JavaScript Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .test-button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .test-button:hover { background: #0056b3; }
+        #log { background: #f8f9fa; padding: 15px; margin: 20px 0; border: 1px solid #ddd; border-radius: 5px; min-height: 200px; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Final JavaScript Diagnostic Test</h1>
+    
+    <div class="test-section">
+        <h3>1. Basic JavaScript Test</h3>
+        <button class="test-button" onclick="alert('Basic onclick works!')">Basic Alert</button>
+        <button class="test-button" onclick="testFunction()">Test Function Call</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. Span onclick Test (Same as home.php)</h3>
+        <span onclick="alert('Span onclick works!')" style="cursor: pointer; padding: 10px; background: #e9ecef; border-radius: 5px; display: inline-block; margin: 5px;">Click this span</span>
+        <span onclick="testSpanFunction(123, 'like')" style="cursor: pointer; padding: 10px; background: #e9ecef; border-radius: 5px; display: inline-block; margin: 5px;">Test Span Function</span>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. Exact Home.php Structure</h3>
+        <div class="post-actions" style="display: flex; gap: 20px; padding-top: 15px;">
+            <span class="post-action" onclick="testReaction(999, 'like')" style="display: flex; align-items: center; gap: 5px; color: #6c757d; cursor: pointer;">
+                👍 Like (0)
+            </span>
+            <span class="post-action" onclick="testReaction(999, 'pray')" style="display: flex; align-items: center; gap: 5px; color: #6c757d; cursor: pointer;">
+                🙏 Pray
+            </span>
+            <span class="post-action" onclick="testComment(999)" style="display: flex; align-items: center; gap: 5px; color: #6c757d; cursor: pointer;">
+                💬 Comment (0)
+            </span>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h3>4. Fetch API Test</h3>
+        <button class="test-button" onclick="testFetchAPI()">Test Fetch</button>
+    </div>
+    
+    <div id="log">
+        <strong>Test Log:</strong><br>
+        Page loaded...<br>
+    </div>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            logDiv.innerHTML += new Date().toLocaleTimeString() + ': ' + message + '<br>';
+            console.log(message);
+        }
+
+        function testFunction() {
+            alert('testFunction called successfully!');
+            log('✓ testFunction called');
+        }
+
+        function testSpanFunction(id, type) {
+            alert('testSpanFunction called with id: ' + id + ', type: ' + type);
+            log('✓ testSpanFunction called with id: ' + id + ', type: ' + type);
+        }
+
+        function testReaction(postId, reactionType) {
+            alert('testReaction called! PostID: ' + postId + ', Reaction: ' + reactionType);
+            log('✓ testReaction called with postId: ' + postId + ', reactionType: ' + reactionType);
+        }
+
+        function testComment(postId) {
+            alert('testComment called! PostID: ' + postId);
+            log('✓ testComment called with postId: ' + postId);
+        }
+
+        function testFetchAPI() {
+            log('Testing fetch API...');
+            fetch('simple-test.php')
+                .then(response => {
+                    log('Fetch response status: ' + response.status);
+                    if (response.ok) {
+                        log('✓ Fetch API is working');
+                        alert('Fetch API works!');
+                    } else {
+                        log('✗ Fetch failed with status: ' + response.status);
+                        alert('Fetch failed!');
+                    }
+                })
+                .catch(error => {
+                    log('✗ Fetch error: ' + error.message);
+                    alert('Fetch error: ' + error.message);
+                });
+        }
+
+        // Test on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            log('✓ DOM loaded, JavaScript is working');
+        });
+
+        // Test if functions are defined
+        window.onload = function() {
+            log('✓ Window loaded');
+            log('testFunction defined: ' + (typeof testFunction !== 'undefined'));
+            log('testReaction defined: ' + (typeof testReaction !== 'undefined'));
+            log('testComment defined: ' + (typeof testComment !== 'undefined'));
+        };
+    </script>
+</body>
+</html>

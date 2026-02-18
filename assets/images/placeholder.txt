@@ -1,0 +1,21 @@
+Logos Added:
+✓ fellowship-logo.jpg - Main fellowship logo (used in header and footer)
+✓ Evan-logo.jpg - Evangelism section logo
+✓ Bs-logo.jpg - Bible Study section logo
+
+Additional logos needed for other sections:
+- Choirs-logo.jpg (Choirs Section)
+- Worship-logo.jpg (Worship Section)
+- Prayer-logo.jpg (Prayers Section)
+- Fund-logo.jpg (Fundraising Section)
+- Charity-logo.jpg (Charity Section)
+- LAD-logo.jpg (LAD Section)
+- Media-logo.jpg (Media Section)
+- Counsel-logo.jpg (Counseling Section)
+
+Upload folders needed (create these in root directory):
+- uploads/profiles/ (for user profile pictures)
+- uploads/posts/ (for post images)
+- uploads/files/ (for file attachments)
+
+Make sure to set proper permissions (777) for upload folders in XAMPP.
