@@ -299,11 +299,6 @@ function previewImage(input) {
 
 // React to post function
 function reactToPost(postId, reactionType) {
-    console.log('Reacting to post:', postId, 'with reaction:', reactionType);
-    
-    // Simple test alert
-    alert(`Testing reaction: ${reactionType} on post ${postId}`);
-    
     fetch('api/react.php', {
         method: 'POST',
         headers: {
@@ -311,85 +306,43 @@ function reactToPost(postId, reactionType) {
         },
         body: `post_id=${postId}&reaction_type=${reactionType}`
     })
-    .then(response => {
-        console.log('Response status:', response.status);
-        return response.text(); // Get as text first to see raw response
-    })
+    .then(response => response.text())
     .then(text => {
-        console.log('Raw response:', text);
         try {
             const data = JSON.parse(text);
-            console.log('API Response:', data);
             if (data.success) {
-                // Update all reaction buttons for this post
                 updateReactionButtons(postId, data);
-                alert('Reaction successful!');
             } else {
-                console.error('API Error:', data.error);
-                alert('Failed to react to post: ' + (data.error || 'Unknown error'));
+                console.error('Reaction failed:', data.error);
             }
         } catch (e) {
-            console.error('JSON parse error:', e);
-            alert('Error parsing response: ' + text);
+            console.error('Reaction parse error:', e, text);
         }
     })
-    .catch(error => {
-        console.error('Fetch Error:', error);
-        alert('Error reacting to post: ' + error.message);
-    });
+    .catch(error => console.error('Reaction error:', error));
 }
 
 // Update reaction buttons based on API response
 function updateReactionButtons(postId, data) {
-    console.log('Updating reaction buttons for post:', postId, 'with data:', data);
-    
     const reactionCounts = data.reaction_counts || {};
     const userCurrentReaction = data.user_current_reaction;
-    
-    console.log('Reaction counts:', reactionCounts);
-    console.log('User current reaction:', userCurrentReaction);
-    
+
     // Update like button
     const likeButton = document.getElementById(`like-btn-${postId}`);
     if (likeButton) {
         const likeCount = reactionCounts.like || 0;
         likeButton.innerHTML = `<i class="fas fa-thumbs-up"></i> Like (${likeCount})`;
-        
-        if (userCurrentReaction === 'like') {
-            likeButton.style.color = 'var(--spiritual-blue)';
-            likeButton.style.fontWeight = 'bold';
-        } else {
-            likeButton.style.color = '';
-            likeButton.style.fontWeight = '';
-        }
-        console.log('Updated like button:', likeButton.innerHTML);
-    } else {
-        console.log('Like button not found for post:', postId);
+        likeButton.style.color = userCurrentReaction === 'like' ? 'var(--spiritual-blue)' : '';
+        likeButton.style.fontWeight = userCurrentReaction === 'like' ? 'bold' : '';
     }
-    
+
     // Update pray button
     const prayButton = document.getElementById(`pray-btn-${postId}`);
     if (prayButton) {
         const prayCount = reactionCounts.pray || 0;
         prayButton.innerHTML = `<i class="fas fa-praying-hands"></i> Pray${prayCount > 0 ? ` (${prayCount})` : ''}`;
-        
-        if (userCurrentReaction === 'pray') {
-            prayButton.style.color = 'var(--spiritual-gold)';
-            prayButton.style.fontWeight = 'bold';
-        } else {
-            prayButton.style.color = '';
-            prayButton.style.fontWeight = '';
-        }
-        console.log('Updated pray button:', prayButton.innerHTML);
-    } else {
-        console.log('Pray button not found for post:', postId);
-    }
-    
-    // Update comment button count
-    const commentButton = document.getElementById(`comment-btn-${postId}`);
-    if (commentButton) {
-        // Don't change comment count here, it's handled separately
-        console.log('Comment button found for post:', postId);
+        prayButton.style.color = userCurrentReaction === 'pray' ? 'var(--spiritual-gold)' : '';
+        prayButton.style.fontWeight = userCurrentReaction === 'pray' ? 'bold' : '';
     }
 }
 
@@ -397,38 +350,24 @@ function updateReactionButtons(postId, data) {
 function commentOnPost(postId) {
     const commentInput = document.getElementById(`comment-${postId}`);
     const comment = commentInput.value.trim();
-    
-    console.log('Commenting on post:', postId, 'with comment:', comment);
-    
-    // Simple test alert
-    alert(`Testing comment on post ${postId}: "${comment}"`);
-    
+
     if (!comment) {
-        alert('Please enter a comment');
         return;
     }
-    
+
     fetch('api/comment.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: `post_id=${postId}&comment=${encodeURIComponent(comment)}`
     })
-    .then(response => {
-        console.log('Comment response status:', response.status);
-        return response.text(); // Get as text first
-    })
+    .then(response => response.text())
     .then(text => {
-        console.log('Comment raw response:', text);
         try {
             const data = JSON.parse(text);
-            console.log('Comment API Response:', data);
             if (data.success) {
                 commentInput.value = '';
-                // Reload comments instead of entire page
                 loadComments(postId);
-                // Update comment count (simple increment)
+                // Increment comment count
                 const commentButton = document.getElementById(`comment-btn-${postId}`);
                 if (commentButton) {
                     const match = commentButton.innerHTML.match(/Comment \((\d+)\)/);
@@ -437,38 +376,36 @@ function commentOnPost(postId) {
                         commentButton.innerHTML = commentButton.innerHTML.replace(/Comment \(\d+\)/, `Comment (${newCount})`);
                     }
                 }
-                alert('Comment posted successfully!');
             } else {
-                console.error('Comment API Error:', data.error);
-                alert('Failed to post comment: ' + (data.error || 'Unknown error'));
+                console.error('Comment failed:', data.error);
             }
         } catch (e) {
-            console.error('Comment JSON parse error:', e);
-            alert('Error parsing comment response: ' + text);
+            console.error('Comment parse error:', e, text);
         }
     })
-    .catch(error => {
-        console.error('Comment Fetch Error:', error);
-        alert('Error posting comment: ' + error.message);
-    });
+    .catch(error => console.error('Comment error:', error));
 }
 
 // Share post function
 function sharePost(postId) {
-    // Simple share functionality - copy link to clipboard
-    const url = `${window.location.origin}/home.php#post-${postId}`;
-    navigator.clipboard.writeText(url).then(() => {
-        alert('Post link copied to clipboard!');
-    }).catch(() => {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = url;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert('Post link copied to clipboard!');
-    });
+    const url = `${window.location.origin}${window.location.pathname.replace(/\/[^/]*$/, '')}/home.php#post-${postId}`;
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => {
+            alert('Post link copied to clipboard!');
+        }).catch(() => fallbackCopy(url));
+    } else {
+        fallbackCopy(url);
+    }
+}
+
+function fallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('Post link copied to clipboard!');
 }
 
 // Toggle comments section

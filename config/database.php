@@ -1,9 +1,24 @@
 <?php
-// Database Configuration for XAMPP
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'haramaya_fellowship');
+// Database settings can be supplied through environment variables or
+// config/database.local.php. XAMPP defaults are retained for local installs.
+$localDbConfigPath = __DIR__ . '/database.local.php';
+$localDbConfig = is_file($localDbConfigPath) ? require $localDbConfigPath : [];
+
+if (!is_array($localDbConfig)) {
+    throw new RuntimeException('config/database.local.php must return an array.');
+}
+
+$dbHost = getenv('DB_HOST');
+$dbUser = getenv('DB_USER');
+$dbPass = getenv('DB_PASS');
+$dbName = getenv('DB_NAME');
+$dbPort = getenv('DB_PORT');
+
+define('DB_HOST', $dbHost !== false && $dbHost !== '' ? $dbHost : ($localDbConfig['host'] ?? 'localhost'));
+define('DB_USER', $dbUser !== false && $dbUser !== '' ? $dbUser : ($localDbConfig['user'] ?? 'root'));
+define('DB_PASS', $dbPass !== false ? $dbPass : ($localDbConfig['password'] ?? ''));
+define('DB_NAME', $dbName !== false && $dbName !== '' ? $dbName : ($localDbConfig['name'] ?? 'haramaya_fellowship'));
+define('DB_PORT', (int) ($dbPort !== false && $dbPort !== '' ? $dbPort : ($localDbConfig['port'] ?? 3306)));
 
 // Base URL Configuration
 if (isset($_SERVER['HTTP_HOST'])) {
@@ -19,11 +34,13 @@ if (isset($_SERVER['HTTP_HOST'])) {
 }
 
 // Create connection
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    // Log the real error and show a safe message to the user
+    error_log("DB Connection failed: " . $conn->connect_error);
+    die("A database connection error occurred. Please try again later.");
 }
 
 // Set charset to utf8mb4

@@ -80,6 +80,20 @@ Open your browser and visit:
 
 ---
 
+## Configure a Hosted MySQL Database
+
+For hosted MySQL, copy `config/database.local.example.php` to
+`config/database.local.php` and enter the connection values from your hosting
+control panel. This local file is ignored by Git so credentials are not
+committed. The application reads its host, username, password, database name,
+and port from that file. Environment variables `DB_HOST`, `DB_USER`, `DB_PASS`,
+`DB_NAME`, and `DB_PORT` override the file when provided.
+
+The default XAMPP settings remain in effect when neither environment variables
+nor a local config file are present. Some shared hosts only allow database
+connections from their own web servers, so a hosted database may not accept
+connections from a local development computer.
+
 ## Quick Test Checklist
 
 ✅ Apache is running (green in XAMPP)  

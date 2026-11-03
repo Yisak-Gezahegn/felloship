@@ -22,7 +22,9 @@ function hasMinRole($minRole) {
 // Redirect if not logged in
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: /login.php');
+        $depth = substr_count($_SERVER['PHP_SELF'], '/') - 2;
+        $rel = str_repeat('../', max(0, $depth));
+        header('Location: ' . $rel . 'login.php');
         exit();
     }
 }
@@ -30,7 +32,9 @@ function requireLogin() {
 // Redirect if not approved
 function requireApproval() {
     if ($_SESSION['status'] !== 'approved') {
-        header('Location: /pending.php');
+        $depth = substr_count($_SERVER['PHP_SELF'], '/') - 2;
+        $rel = str_repeat('../', max(0, $depth));
+        header('Location: ' . $rel . 'pending.php');
         exit();
     }
 }
