@@ -10,10 +10,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="<?php echo $rel_path; ?>about.php">About Us</a></li>
+                        <li><a href="<?php echo $rel_path; ?>index.php">Home</a></li>
                         <li><a href="<?php echo $rel_path; ?>sections.php">Our Sections</a></li>
-                        <li><a href="<?php echo $rel_path; ?>contact.php">Contact</a></li>
-                        <li><a href="<?php echo $rel_path; ?>feedback.php">Feedback</a></li>
+                        <li><a href="<?php echo $rel_path; ?>events.php">Events</a></li>
+                        <li><a href="<?php echo $rel_path; ?>register.php">Join Us</a></li>
                     </ul>
                 </div>
                 

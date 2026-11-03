@@ -81,7 +81,7 @@ $section_icons = [
                     </div>
                     
                     <?php if (isLoggedIn()): ?>
-                        <a href="/section-details.php?id=<?php echo $section['section_id']; ?>" class="btn btn-primary" style="margin-top: 20px; width: 100%;">
+                        <a href="section-details.php?id=<?php echo $section['section_id']; ?>" class="btn btn-primary" style="margin-top: 20px; width: 100%;">
                             View Details
                         </a>
                     <?php endif; ?>
@@ -92,7 +92,7 @@ $section_icons = [
         <?php if (!isLoggedIn()): ?>
             <div style="text-align: center; margin-top: 50px;">
                 <h3 style="margin-bottom: 20px;">Want to join a section?</h3>
-                <a href="/register.php" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">
+                <a href="register.php" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">
                     Register Now
                 </a>
             </div>

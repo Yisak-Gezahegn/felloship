@@ -66,7 +66,7 @@ $rel_path = str_repeat('../', max(0, $depth));
                         </a></li>
                         
                         <?php if (hasMinRole('section_leader')): ?>
-                        <li><a href="<?php echo $rel_path; ?>reports.php" class="nav-link">
+                        <li><a href="<?php echo $rel_path; ?>dashboard.php" class="nav-link">
                             <i class="fas fa-file-alt"></i><span>Reports</span>
                         </a></li>
                         <?php endif; ?>
@@ -149,7 +149,6 @@ $rel_path = str_repeat('../', max(0, $depth));
                     <ul>
                         <li><a href="<?php echo $rel_path; ?>index.php" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
                         <li><a href="<?php echo $rel_path; ?>sections.php" class="nav-link"><i class="fas fa-layer-group"></i><span>Sections</span></a></li>
-                        <li><a href="<?php echo $rel_path; ?>about.php" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a></li>
                         <li><a href="<?php echo $rel_path; ?>login.php" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                         <li><a href="<?php echo $rel_path; ?>register.php" class="btn-register"><i class="fas fa-user-plus"></i> Sign Up</a></li>
                     </ul>
